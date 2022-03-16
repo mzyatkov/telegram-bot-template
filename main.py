@@ -56,7 +56,7 @@ def default_query(inline_query):
     try:
         date = str(datetime.datetime.now().month) + str(datetime.datetime.now().day)
         date = int(date)
-        random.seed(int(message.chat.id)+ date)
+        random.seed(int(inline_query.id)+ date)
         cock = random.randint(2,40)
         message = "My brs size is " + str(cock)
         r = types.InlineQueryResultArticle('1', 'const==sex', types.InputTextMessageContent(message))
