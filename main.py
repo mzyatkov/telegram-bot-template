@@ -5,7 +5,7 @@ import random
 
 from setup import bot, logger
 from webhook import app
-
+from telebot import types
 # --------------- dialog params -------------------
 dialog = {
     'hello': {
