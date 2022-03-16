@@ -50,6 +50,27 @@ def echo(message):
     bot.send_message(message.chat.id, message.text)
 
 
+@bot.inline_handler(lambda query: len(query.query) == 0)
+def default_query(inline_query):
+    try:
+        cock = random.randint(2,40)
+        message = "My brs size is " + str(cock)
+        r = types.InlineQueryResultArticle('1', 'default', types.InputTextMessageContent(message))
+        bot.answer_inline_query(inline_query.id, [r])
+    except Exception as e:
+        print(e)
+
+@bot.inline_handler(lambda query: query.query == 'text')
+def query_text(inline_query):
+    try:
+        cock = random.randint(2,40)
+        message = "My brs size is " + str(cock)
+        r = types.InlineQueryResultArticle('1', 'Result', types.InputTextMessageContent(message))
+        bot.answer_inline_query(inline_query.id, [r])
+    except Exception as e:
+        print(e)
+
+
 if __name__ == '__main__':
     if os.environ.get("IS_PRODUCTION", "False") == "True":
         app.run()
