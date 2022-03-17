@@ -6,7 +6,6 @@ import random
 from setup import bot, logger
 from webhook import app
 from telebot import types
-import datetime
 # --------------- dialog params -------------------
 dialog = {
     'hello': {
@@ -54,13 +53,10 @@ def echo(message):
 @bot.inline_handler(lambda query: len(query.query) == 0)
 def default_query(inline_query):
     try:
-        date = str(datetime.datetime.now().month) + str(datetime.datetime.now().day)
-        date = int(date)
-        random.seed(int(inline_query.from_user.id)+ date)
-        cock = random.randint(2,40)
+        cock = random.normalvariate(15,5) 
         message = "My brs size is " + str(cock)
         r = types.InlineQueryResultArticle('1', 'const==sex', types.InputTextMessageContent(message))
-        bot.answer_inline_query(inline_query.id, [r])
+        bot.answer_inline_query(inline_query.id, [r], is_personal=True, cache_time=86400)
     except Exception as e:
         print(e)
 
