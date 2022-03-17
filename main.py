@@ -53,7 +53,7 @@ def echo(message):
 @bot.inline_handler(lambda query: len(query.query) == 0)
 def default_query(inline_query):
     try:
-        cock = random.normalvariate(15,5) 
+        cock = int(random.normalvariate(16,5)) 
         message = "My brs size is " + str(cock)
         r = types.InlineQueryResultArticle('1', 'const==sex', types.InputTextMessageContent(message))
         bot.answer_inline_query(inline_query.id, [r], is_personal=True, cache_time=86400)
