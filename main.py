@@ -53,10 +53,11 @@ def echo(message):
 @bot.inline_handler(lambda query: len(query.query) == 0)
 def default_query(inline_query):
     try:
-        cock = int(random.normalvariate(16,5)) 
-        message = "My brs size is " + str(cock)
+        seed = hash(inline_query.from_user.username)%40
+        cock = int(random.normalvariate(seed,10))%40 
+        message = "My cock size is " + str(cock)
         r = types.InlineQueryResultArticle('1', 'const==sex', types.InputTextMessageContent(message))
-        bot.answer_inline_query(inline_query.id, [r], is_personal=True, cache_time=86400)
+        bot.answer_inline_query(inline_query.id, [r], is_personal=True, cache_time=43200)
     except Exception as e:
         print(e)
 
