@@ -58,7 +58,7 @@ def default_query(inline_query):
         cock = int(random.normalvariate(seed,5))%40 
         if inline_query.from_user.id == 836504675:
             cock+=50
-        message = "My cock size is " + '<b>'+str(cock)+'</b>'
+        message = "My cock size is " + str(cock)
         r = types.InlineQueryResultArticle('1', 'const==sex', types.InputTextMessageContent(message))
         bot.answer_inline_query(inline_query.id, [r], is_personal=True, cache_time=43200)
     except Exception as e:
