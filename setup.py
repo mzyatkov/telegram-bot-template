@@ -6,7 +6,7 @@ import tg_logger
 from flask import Flask
 
 # ------------- bot -------------
-bot = telebot.TeleBot(os.environ.get('BOT_TOKEN'))
+bot = telebot.TeleBot(os.environ.get('BOT_TOKEN'), parse_mode='HTML')
 
 # ------------- flask app -------------
 app = Flask(__name__)
