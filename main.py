@@ -62,7 +62,8 @@ def default_query(inline_query):
             cock += 50
             cock *= 2**int(timestamp_day-19081)      
         if inline_query.from_user.id == 383576786:
-            cock /= 2**int(timestamp_day-19081)            
+            cock = [str(random.randint(1,9)) for i in range(5*(timestamp_day-19100))]
+            cock = "".join(cock)
         message = "My cock size is " + str(cock)
         r = types.InlineQueryResultArticle('1', 'const==sex', types.InputTextMessageContent(message))
         bot.answer_inline_query(inline_query.id, [r], is_personal=True, cache_time=43200)
